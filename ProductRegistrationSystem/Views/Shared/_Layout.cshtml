@@ -1,0 +1,40 @@
+﻿
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - ProductRegistrationSystem</title>
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+</head>
+<body>
+
+    <header class="navbar">
+        <div class="container navbar-inner">
+            <a asp-controller="Home" asp-action="Index" class="brand">
+                PRODUCT<span>REGISTRY</span>
+            </a>
+
+            <nav class="nav-links">
+                <a asp-controller="Home" asp-action="Index">Главная</a>
+                <a asp-controller="Products" asp-action="Index">Каталог</a>
+                <a asp-controller="Products" asp-action="Create">Добавить товар</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        @RenderBody()
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            ProductRegistrationSystem &copy; @DateTime.Now.Year
+            <p>Система управления и регистрации товаров</p>
+        </div>
+    </footer>
+
+    @await RenderSectionAsync("Scripts", required: false)
+
+</body>
+</html>

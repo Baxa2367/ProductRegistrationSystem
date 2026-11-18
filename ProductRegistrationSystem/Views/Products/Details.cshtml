@@ -1,0 +1,78 @@
+﻿@model ProductRegistrationSystem.ViewModels.ProductDetailsViewModel
+
+@{
+    ViewData["Title"] = "Информация о товаре";
+}
+
+<div class="details-page">
+    <div class="page-header">
+        <div>
+            <h1>@Model.Name</h1>
+            <p>Информация о товаре #@Model.Id</p>
+        </div>
+        <a asp-action="Index" class="btn-secondary">Назад</a>
+    </div>
+
+    <div class="details-card">
+        @if (!string.IsNullOrWhiteSpace(Model.ImageUrl))
+        {
+            <img src="@Model.ImageUrl" alt="@Model.Name" class="details-image" />
+        }
+
+        <div class="details-grid">
+            <div class="detail-item">
+                <span>Название</span>
+                <strong>@Model.Name</strong>
+            </div>
+
+            <div class="detail-item">
+                <span>Категория</span>
+                <strong>@Model.Category</strong>
+            </div>
+
+            <div class="detail-item">
+                <span>Цена</span>
+                <strong>@Model.Price.ToString("N2") ₸</strong>
+            </div>
+
+            <div class="detail-item">
+                <span>Количество</span>
+                <strong>@Model.StockQuantity</strong>
+            </div>
+
+            <div class="detail-item">
+                <span>Статус</span>
+                <strong>@(Model.IsActive ? "Активен" : "Неактивен")</strong>
+            </div>
+
+            <div class="detail-item">
+                <span>Дата создания</span>
+                <strong>@Model.CreatedAt.ToLocalTime().ToString("dd.MM.yyyy HH:mm")</strong>
+            </div>
+
+            <div class="detail-item">
+                <span>Дата изменения</span>
+                <strong>
+                    @(Model.UpdatedAt.HasValue
+                        ? Model.UpdatedAt.Value.ToLocalTime().ToString("dd.MM.yyyy HH:mm")
+                        : "Не изменялся")
+                </strong>
+            </div>
+        </div>
+
+        <div class="detail-description">
+            <h3>Описание</h3>
+            <p>@Model.Description</p>
+        </div>
+
+        <div class="form-actions">
+            <a asp-action="Edit" asp-route-id="@Model.Id" class="btn-primary">
+                Редактировать
+            </a>
+
+            <a asp-action="Delete" asp-route-id="@Model.Id" class="btn-danger">
+                Удалить
+            </a>
+        </div>
+    </div>
+</div>

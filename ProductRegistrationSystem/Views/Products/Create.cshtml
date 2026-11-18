@@ -1,0 +1,65 @@
+﻿@model ProductRegistrationSystem.ViewModels.ProductCreateViewModel
+
+@{
+    ViewData["Title"] = "Добавление товара";
+}
+
+<div class="form-page">
+    <div class="form-header">
+        <h1>Добавление товара</h1>
+        <p>Заполните данные нового товара</p>
+    </div>
+
+    <form asp-action="Create" method="post" class="product-form">
+        <div asp-validation-summary="All" class="validation-summary"></div>
+
+        <div class="form-group">
+            <label asp-for="Name">Название товара</label>
+            <input asp-for="Name" placeholder="Например, ноутбук" />
+            <span asp-validation-for="Name" class="validation-error"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="Description">Описание</label>
+            <textarea asp-for="Description"
+                      rows="4"
+                      placeholder="Описание товара..."></textarea>
+            <span asp-validation-for="Description" class="validation-error"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="Category">Категория</label>
+            <input asp-for="Category" placeholder="Электроника" />
+            <span asp-validation-for="Category" class="validation-error"></span>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group">
+                <label asp-for="Price">Цена (₸)</label>
+                <input asp-for="Price" type="number" step="0.01" />
+                <span asp-validation-for="Price" class="validation-error"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="StockQuantity">Количество</label>
+                <input asp-for="StockQuantity" type="number" />
+                <span asp-validation-for="StockQuantity" class="validation-error"></span>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="ImageUrl">URL изображения</label>
+            <input asp-for="ImageUrl" placeholder="https://..." />
+            <span asp-validation-for="ImageUrl" class="validation-error"></span>
+        </div>
+
+        <div class="form-actions">
+            <button type="submit" class="btn-primary">Сохранить товар</button>
+            <a asp-action="Index" class="btn-secondary">Отмена</a>
+        </div>
+    </form>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

@@ -1,0 +1,46 @@
+﻿@{
+    ViewData["Title"] = "Главная";
+}
+
+<section class="hero">
+    <div class="hero-content">
+        <span class="hero-label">PRODUCT MANAGEMENT SYSTEM</span>
+
+        <h1>Управляйте товарами.<br />Контролируйте свой бизнес.</h1>
+
+        <p>
+            Единая система регистрации, контроля и управления
+            ассортиментом товаров.
+        </p>
+
+        <div class="hero-actions">
+            <a asp-controller="Products" asp-action="Index" class="btn-primary">
+                Открыть каталог
+            </a>
+
+            <a asp-controller="Products" asp-action="Create" class="btn-secondary">
+                Добавить товар
+            </a>
+        </div>
+    </div>
+</section>
+
+<section class="features">
+    <div class="feature-card">
+        <span class="feature-number">01</span>
+        <h3>Регистрация</h3>
+        <p>Добавляйте товары и сохраняйте информацию в базе данных.</p>
+    </div>
+
+    <div class="feature-card">
+        <span class="feature-number">02</span>
+        <h3>Контроль</h3>
+        <p>Управляйте ценами, количеством и статусом товаров.</p>
+    </div>
+
+    <div class="feature-card">
+        <span class="feature-number">03</span>
+        <h3>Поиск</h3>
+        <p>Находите товары по названию и категории.</p>
+    </div>
+</section>
